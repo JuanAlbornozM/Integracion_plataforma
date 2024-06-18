@@ -1,0 +1,160 @@
+# Logs
+*.log
+**/*.log
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono auto generated files
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa]rm/
+[Aa]rm64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio 2019/2022
+.vscode/
+.vs/
+.vscode-test/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Temporary files
+[Tt]mp/
+[Tt]emp/
+
+# Application Insights
+ApplicationInsights.config
+
+# Web publish folder
+publish/
+
+# Windows Store files
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*.ncb
+*.aps
+*.opt
+*.plg
+*.vbw
+*.pyc
+
+# npm packages
+node_modules/
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# Backup & report files from converting an old project file
+*.report.xml
+*.Backup
+*.[Dd]esignTime.*
+_ReSharper.Caches/
+
+# Rider
+.idea/
+.idea_modules/
+.idea_tips/
+.idea_code/
+.idea_run/
+.idea_sandbox/
+
+# Local History
+.localhistory/
+
+# Crashlytics config file
+crashlytics/
+
+# JetBrains Rider
+.idea/
+.idea_modules/
+.idea_tips/
+.idea_code/
+.idea_run/
+.idea_sandbox/
+
+# Local History
+.localhistory/
+
+# Crashlytics config file
+crashlytics/
+
+# Comment History
+.idea_comment_history/
+
+# AppCode
+.idea/
+
+# Thumbnail Cache
+Thumbnails/
+
+# Ignore UI test output files
+UITestLogs/
+
+# SonarQube
+.sonar/
+
+# VS Code extensions
+.vscode/
+.vscode-test/
+
+# Common test result folders
+TestResults/
+
+# Other folder
+.nuget/
+.nuget/packages/
+Packages/
+_build/
+
+# Local web server cache
+.vs/
+
+# Java JAR files
+*.jar
+*.war
+*.ear
+
+# Coverlet coverage folder
+coverage/
