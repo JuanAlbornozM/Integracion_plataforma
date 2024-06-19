@@ -15,6 +15,23 @@ namespace FerremasProductos.Controllers
             _productoContext = productoContext;
         }
 
+        [HttpGet("AllProduct")]
+        [ActionName("GetProducts")]
+        public async Task<ActionResult<IEnumerable<IpProducto>>> GetProducts()
+        {
+            var productos = await _productoContext.IpProductos
+                .Include(p => p.IdPrecios)
+                .ToListAsync();
+
+            if (productos == null || productos.Count == 0)
+            {
+                return NotFound(new { Message = "No existen productos" });
+            }
+            var result = productos.Select(p => DatosProducto(p)).ToList();
+            return Ok(result);
+        }
+
+
         [HttpGet("ByProduct")]
         [ActionName("GetById")]
         public async Task<ActionResult<IpProducto>> GetById(int id_producto)
