@@ -1,2 +1,0 @@
-# Integracion_plataforma
-Solucion_Examen_final
