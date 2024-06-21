@@ -55,6 +55,7 @@ public partial class DucogymContext : DbContext
             entity.ToTable("IP_Producto");
 
             entity.Property(e => e.Codigo).HasMaxLength(50);
+            entity.Property(e => e.TipoProducto).HasMaxLength(150);
             entity.Property(e => e.CodigoProducto).HasMaxLength(100);
             entity.Property(e => e.Marca).HasMaxLength(100);
             entity.Property(e => e.Nombre).HasMaxLength(100);

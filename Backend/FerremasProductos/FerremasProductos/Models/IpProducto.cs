@@ -15,5 +15,7 @@ public partial class IpProducto
 
     public string? Codigo { get; set; }
 
+    public string? TipoProducto { get; set; }
+
     public virtual ICollection<IpPrecio> IdPrecios { get; set; } = new List<IpPrecio>();
 }

@@ -89,6 +89,24 @@ namespace FerremasProductos.Controllers
             return Ok(viewModel);
         }
 
+        [HttpGet("ByTypeProduct")]
+        [ActionName("GetByTypeProduct")]
+        public async Task<ActionResult<IpProducto>> GetByTypeProduct(string tipoProducto)
+        {
+            var productos = await _productoContext.IpProductos
+                .Include(p => p.IdPrecios)
+                .Where(p => p.TipoProducto == tipoProducto)
+                .ToListAsync();
+
+            if (productos == null || productos.Count == 0)
+            {
+                return NotFound(new { Message = $"Producto con tipo {tipoProducto} no encontrado." });
+            }
+
+            var result = productos.Select(p => DatosProducto(p)).ToList();
+            return Ok(result);
+        }
+
         [HttpPost("CreateProduct")]
         [ActionName("Create")]
         public async Task<ActionResult> Create(CreateProduct createProduct)
@@ -103,7 +121,8 @@ namespace FerremasProductos.Controllers
                 CodigoProducto = createProduct.CodigoProducto,
                 Nombre = createProduct.Nombre,
                 Marca = createProduct.Marca,
-                Codigo = createProduct.Codigo
+                Codigo = createProduct.Codigo,
+                TipoProducto = createProduct.TipoProducto
             };
 
             var precio = new IpPrecio
@@ -142,6 +161,8 @@ namespace FerremasProductos.Controllers
             producto.CodigoProducto = product.CodigoProducto;
             producto.Nombre = product.Nombre;
             producto.Marca = product.Marca;
+            producto.Codigo = product.Codigo;
+            producto.TipoProducto = product.TipoProducto;
 
             var precio = new IpPrecio
             {
@@ -166,6 +187,7 @@ namespace FerremasProductos.Controllers
                 producto.Nombre,
                 producto.Marca,
                 producto.Codigo,
+                producto.TipoProducto,
                 Precios = producto.IdPrecios.Select(precio => new
                 {
                     precio.Fecha,
