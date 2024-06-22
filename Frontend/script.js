@@ -45,18 +45,27 @@ document.addEventListener("DOMContentLoaded", function() {
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
         
-        fetch('https://api.ejemplo.com/login', {
+        fetch('http://localhost:5142/api/login/byCredentials', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ 
+                "Email":email, 
+                "Password":password 
+            })
         })
         .then(response => response.json())
         .then(data => {
-            alert('Login exitoso');
-        })
-        .catch(error => {
+            console.log(data);
+            if (data.status == 404 || data.status == 400) {
+              alert("Usuario o contraseña incorrectos");
+            } else {
+              console.log("token", data.token);
+              alert("Login exitoso")
+            }
+          })
+        .catch(() => {
             alert('Error en login');
         });
     });
@@ -65,15 +74,25 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('registro-form').addEventListener('submit', function(event) {
         event.preventDefault();
         const nombre = document.getElementById('registro-nombre').value;
+        const apellido = document.getElementById('registro-apellido').value;
         const email = document.getElementById('registro-email').value;
+        const telefono = document.getElementById('registro-telefono').value;
         const password = document.getElementById('registro-password').value;
+        const perfil = 2;
         
-        fetch('https://api.ejemplo.com/registro', {
+        fetch('http://localhost:5142/api/gestion/CreateUser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nombre, email, password })
+            body: JSON.stringify({ 
+                "Nombre":nombre, 
+                "Apellido":apellido,
+                "Email":email, 
+                "Telefono":telefono,
+                "Password":password,
+                "Perfil":perfil
+            })
         })
         .then(response => response.json())
         .then(data => {
