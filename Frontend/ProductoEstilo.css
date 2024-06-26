@@ -1,0 +1,56 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Section styles */
+.productos-section {
+    width: 40%;
+    margin: 0 auto;
+    background-color: white;
+    text-align: center;
+    padding-top: 50px;
+    
+}
+
+/* Grid styles for products */
+.productos-container {
+    display: grid;    
+    padding: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 3fr));
+    gap: 20px;
+    
+}
+
+.title-prod{
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+
+}
+
+/* Product card styles */
+.producto {
+    background: rgb(255, 255, 255);
+    border: 3px solid #cacaca;
+    color: black;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.producto img {
+    width:150px;
+    height:150px;
+    object-fit: contain;
+}
+
+.producto h3 {
+    margin: 10px 0;
+}
+
+.producto p {
+    margin: 5px 0;
+}
