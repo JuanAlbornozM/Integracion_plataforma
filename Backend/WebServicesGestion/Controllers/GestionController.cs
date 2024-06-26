@@ -31,6 +31,20 @@ namespace WebServicesGestion.Controllers
             }
             return usuarios;
         }
+
+        [HttpGet("AllUsers")]
+        [ActionName("GetAll")]
+        public async Task<ActionResult<IEnumerable<Usuario>>> GetAll()
+        {
+            var personas = await _gestionDbContext.Usuarios.ToListAsync();
+            if (personas == null)
+            {
+                return NotFound(new { Message = "No hay usuarios." });
+            }
+            return personas;
+        }
+
+
         [HttpGet("byEmail")]
         [ActionName("GetByEmail")]
         public async Task<ActionResult<Usuario>> GetByEmail(string email)
@@ -51,6 +65,8 @@ namespace WebServicesGestion.Controllers
                 return BadRequest(ModelState);
             }
             var usu = await _gestionDbContext.Usuarios.Where(u => u.Email == usuario.Email).FirstOrDefaultAsync();
+
+
             if (usu == null)
             {
                 await _gestionDbContext.Usuarios.AddAsync(usuario);
